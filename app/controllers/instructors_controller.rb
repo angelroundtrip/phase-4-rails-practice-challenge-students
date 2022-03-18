@@ -6,8 +6,8 @@ class InstructorsController < ApplicationController
   end
 
   def create
-    instructor = Instructor.create(instructor_params)
-    render json: instructor
+    instructor = Instructor.create!(instructor_params)
+    render json: instructor, status: :created
   end
 
   def show
@@ -18,7 +18,7 @@ class InstructorsController < ApplicationController
   def update
     instructor = find_instructor
     instructor.update(instructor_params)
-    render json: instructor
+    render json: instructor, status: :ok
   end
 
   def destroy
